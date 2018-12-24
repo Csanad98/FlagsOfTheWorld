@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="10sp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    
+    <ImageView
+        android:src="@drawable/united_states_of_america"
+        android:layout_width="100dp"
+        android:layout_height="50dp" />
+
+    <TextView
+        android:text="USA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <CheckBox
+        android:text="Visited?"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

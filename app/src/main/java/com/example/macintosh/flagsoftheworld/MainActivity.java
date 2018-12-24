@@ -43,5 +43,17 @@ public class MainActivity extends AppCompatActivity {
 
         layout.addView(butt,1); // add the button, as the second child of the layout
 
+
+
+        //Using a layout inflater (inside an activity) to create 3 flags
+        getLayoutInflater().inflate(R.layout.flag, layout);
+
+        //1st param: layout to inflate, 2nd arg: where to put it
+
+        getLayoutInflater().inflate(R.layout.flag, layout);
+
+        getLayoutInflater().inflate(R.layout.flag, layout);
+
+
     }
 }
