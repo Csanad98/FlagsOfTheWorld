@@ -6,9 +6,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.GridLayout;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -65,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //countryName: "Germany"
-    private void addFlag(String countryName, GridLayout layout) {
+    private void addFlag(final String countryName, GridLayout layout) {
 
 
         //1st param: layout to inflate, 2nd arg: where to put it
@@ -83,15 +85,34 @@ public class MainActivity extends AppCompatActivity {
         tv.setText(countryName);
 
         //convert country name, so it's suitable to access flag images
-        countryName = countryName.replace(" ", "").toLowerCase();
+        String countryName2 = countryName.replace(" ", "").toLowerCase();
 
 
         //get the id of the image of the current View which is inflated
-        int flagImageId = getResources().getIdentifier(countryName, "drawable", getPackageName());
+        int flagImageId = getResources().getIdentifier(countryName2, "drawable", getPackageName());
 
         //set the image
-        ImageView img = (ImageView) flag.findViewById(R.id.flag_image);
+        ImageButton img = (ImageButton) flag.findViewById(R.id.flag_image);
         img.setImageResource(flagImageId);
+
+        //need to set onclick listener for imagebutton
+        img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //Toast args:
+                /*
+                1st: context: usually just "this", this case I'm nested, so I need to refer to this the following way
+                2nd: text to be toasted
+                - cannot access countryName because of the nestedness
+                - solution: declare countryName as final, then I can access it here
+
+                In general: when being in this nested things, I can reference variables upper if I declare them final
+                3rd: time length to show the toast
+                 */
+                Toast.makeText(MainActivity.this, "You clicked: "+ countryName, Toast.LENGTH_SHORT);
+            }
+        });
 
         //add the setup view
         layout.addView(flag);
