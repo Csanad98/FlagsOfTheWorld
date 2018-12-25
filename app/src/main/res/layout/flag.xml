@@ -7,16 +7,19 @@
     android:layout_height="wrap_content">
     
     <ImageView
-        android:src="@drawable/united_states_of_america"
+        android:src="@drawable/unitedstates"
+        android:id="@+id/flag_image"
         android:layout_width="100dp"
         android:layout_height="50dp" />
 
     <TextView
+        android:id="@+id/flag_text"
         android:text="USA"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
     <CheckBox
+        android:id="@+id/flag_checkbox"
         android:text="Visited?"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
